@@ -43,29 +43,29 @@ Explore the homepage of Pagine Bookstore!
 ![alt text](<Screenshot 2025-01-13 181130.png>) ![alt text](<Screenshot 2025-01-13 181147.png>) ![alt text](<Screenshot 2025-01-13 181207.png>) ![alt text](<Screenshot 2025-01-13 181220.png>)
 
 View Book Details 
-![alt text](<Screenshot 2025-01-13 183127>)
+![alt text](<Screenshot 2025-01-13 183127.png>)
 
 Categories Page
-![alt text](<Screenshot 2025-01-13 181537>)
+![alt text](<Screenshot 2025-01-13 181537.png>)
 
 Category Page 
-![alt text](<Screenshot 2025-01-13 181558>)
+![alt text](<Screenshot 2025-01-13 181558.png>)
 
 Cart Page 
-![alt text](<Screenshot 2025-01-13 181620>)
+![alt text](<Screenshot 2025-01-13 181620.png>)
 
 Use the search bar to find books by title, author, or genre.
-![alt text](<Screenshot 2025-01-13 182720>)
+![alt text](<Screenshot 2025-01-13 182720.png>)
 
 Subscribe for Newsletters
-![alt text](<Screenshot 2025-01-13 182930>)
+![alt text](<Screenshot 2025-01-13 182930.png>)
 
 Checkout Page 
-![alt text](<Screenshot 2025-01-13 181658>)
+![alt text](<Screenshot 2025-01-13 181658.png>)
 
 Process Payment With Payfast
-![alt text](<Screenshot 2025-01-13 181719>)
-![alt text](<Screenshot 2025-01-13 181753>)
-![alt text](<Screenshot 2025-01-13 181815>)
-![alt text](<Screenshot 2025-01-13 181840>)
-![alt text](<Screenshot 2025-01-13 181903>)
+![alt text](<Screenshot 2025-01-13 181719.png>)
+![alt text](<Screenshot 2025-01-13 181753.png>)
+![alt text](<Screenshot 2025-01-13 181815.png>)
+![alt text](<Screenshot 2025-01-13 181840.png>)
+![alt text](<Screenshot 2025-01-13 181903.png>)

@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>More Categories</title>
+    <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Baskervville:ital@0;1&family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Coming+Soon&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Creepster&family=Dancing+Script:wght@400..700&family=Julius+Sans+One&family=Lora:ital,wght@0,400..700;1,400..700&family=MedievalSharp&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Russo+One&family=Uncial+Antiqua&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+     <!--Logo-->
+     <a href="{{url_for('auth.home')}}">
+        <img id="logo" src="{{url_for('static', filename='Images/icons/Logo.jpg')}}" alt="Logo">
+      </a>
+      
+      <!--search bar-->
+      <div id="top_nav">
+      <div id="search-pair">
+      <input id="search-bar" type="text" placeholder=" What are you looking for?">
+      <!--Top icons-->
+      <i class="fas fa-search"></i>
+      </div>
+      
+      <!--Drop Down-->
+     <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <div class="dropdown-content">
+          <a href="{{url_for('auth.account')}}">Account</a>
+           {% if session.get("email")%}
+              <a href="{{url_for('auth.logout')}}">Logout</a>
+           {% endif%}
+           <a href="{{url_for('auth.aboutus')}}">About us</a>
+        </div>
+      </div>
+      
+      <a href ="{{url_for('auth.view_cart')}}">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+    </div>
+    
+      <!--Menu bar-->
+    
+    
+      <hr class="short-line">
+        <div class = "top_nav">
+         <div id="myLinks">
+       <a href="{{ url_for('auth.category', category_name='New Books') }}">NEW</a>
+    <a href="{{ url_for('auth.category', category_name='High Fantasy') }}">HIGH FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Low Fantasy') }}">LOW FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Urban Fantasy') }}">URBAN FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Dark Fantasy') }}">DARK FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Sword and Sorcery') }}">SWORD & SORCERY</a>
+    <a href="{{ url_for('auth.categories')}}">MORE</a>
+    
+      </div>
+          <hr class="short-line">
+
+          <!--Announcements-->
+          <div id="announcements">
+              <p>🌟 Free Shipping on Orders Over R500! 🌟</p>
+          </div>
+
+          <p class="top-heading">Shop By Category</p><br>
+
+          <!--Categories-->
+          <div class="category-buttons">
+              <a href="{{ url_for('auth.category', category_name='High Fantasy') }}"><button id="high-fantasy" class="categories"> High Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Low Fantasy') }}"><button id="low-fantasy" class="categories"> Low Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Urban Fantasy') }}"><button id="urban-fantasy" class="categories"> Urban Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Dark Fantasy') }}"><button id="dark-fantasy" class="categories"> Dark Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Sword and Sorcery') }}"><button id="sword-and-sorcery" class="categories"> Sword and Sorcery </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Fairy Tale Fantasy') }}"><button id="fairy-tale-fantasy" class="categories"> Fairytale Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Comic Fantasy') }}"><button id="comic-fantasy" class="categories"> Comic Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Steampunk Fantasy') }}"><button id="steampunk-fantasy" class="categories"> Steampunk Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Magical Realism') }}"><button id="magical-realism" class="categories"> Magical Realism </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Contemporary Fantasy') }}"><button id="contemporary-fantasy" class="categories">Contemporary Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Grimdark Fantasy') }}"><button id="grimdark-fantasy" class="categories"> Grimdark Fantasy</button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Mythic Fantasy') }}"><button id="mythic-fantasy" class="categories"> Mythic Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Heroic Fantasy') }}"><button id="heroic-fantasy" class="categories"> Heroic Fantasy </button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Fairy Tale Retellings') }}"><button id="fairy-tale-retellings" class="categories">Fairy Tale Retellings</button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Portal Fantasy') }}"><button id="portal-fantasy" class="categories"> Portal Fantasy</button><br></a>
+              <a href="{{ url_for('auth.category', category_name='Sword and Planet') }}"><button id="sword-and-planet" class="categories"> Sword and Planet</button><br></a>
+          </div>
+
+          <!--Footer-->
+
+          <div class="footer">
+              <div id="customer-care">
+                  <h5 class="footer-heading">CUSTOMER CARE</h5>
+                  <h5 class="footer-heading">CONTACT HOURS</h5>
+                  <p>Monday - Friday</p>
+                  <p>8:00am - 5:00pm</p>
+                  <h5 class="footer-heading">EMAIL</h5>
+                  <p>info@pagine.co.za</p>
+                  <h5 class="footer-heading">TEL:</h5>
+                  <p>+27(0) 74 847 8483</p>
+              </div>
+
+              <div id="customer-services">
+                  <h5 class="footer-heading">CUSTOMER SERVICES</h5>
+                  <ul>
+                      <li><a href="#">Track Order</a></li>
+                      <li><a href="#">Delivery Information</a></li>
+                      <li><a href="#">Banking Details</a></li>
+                      <li><a href="#">Guarantee & Returns</a></li>
+                      <li><a href="#">FAQs</a></li>
+                  </ul>
+              </div>
+
+              <div id="about-us">
+                  <h5 class="footer-heading">ABOUT US</h5>
+                  <ul>
+                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="#">Events</a></li>
+                      <li><a href="#">Reward Programme</a></li>
+                      <li><a href="#">About Pagine</a></li>
+                      <li><a href="#">Gift Cards & Vouchers</a></li>
+                      <li><a href="#">Help</a></li>
+                      <!--insert Email form-->
+                  </ul>
+              </div>
+
+            <div id="subcribe">
+                <form method="POST" action="
+                {{url_for('auth.subscribe')}}">
+
+                    <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+            </div>
+                    <h5 class="footer-heading">SUBSCRIBE</h5>
+                    <p>Subscribe to our newsletters to get exclusive deals</p>
+                    <input  type="text" name="name" placeholder="Your name" required><br>
+                    <input type="email" name="email" placeholder="Enter your email" required><br>
+                    <button type="submit" class="submit-button">SUBSCRIBE</button>
+                </form>
+            </div>
+
+              <div id="social-media-links">
+                <a href="https://facebook.com" class="social-icons" target="_blank">
+                  <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com" class="social-icons" target="_blank">
+                  <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com" class="social-icons" target="_blank">
+                  <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://linkedin.com" class="social-icons" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://youtube.com" class="social-icons" target="_blank">
+                  <i class="fab fa-youtube"></i>
+              </a>
+              </div>
+          </div>
+          <script src="Static/categories.js"></script>
+  </body>
+</html>

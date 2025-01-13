@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+   
+</head>
+<body>
+       <!--Logo-->
+       <a href="{{url_for('auth.home')}}">
+        <img id="logo" src="{{url_for('static', filename='Images/icons/Logo.jpg')}}" alt="Logo">
+      </a>
+      
+      <!--search bar-->
+      <div id="top_nav">
+      <div id="search-pair">
+      <input id="search-bar" type="text" placeholder=" What are you looking for?">
+      <!--Top icons-->
+      <i class="fas fa-search"></i>
+      </div>
+      
+      <!--Drop Down-->
+     <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <div class="dropdown-content">
+          <a href="{{url_for('auth.account')}}">Account</a>
+           {% if session.get("email")%}
+              <a href="{{url_for('auth.logout')}}">Logout</a>
+           {% endif%}
+           <a href="{{url_for('auth.aboutus')}}">About us</a>
+        </div>
+      </div>
+      
+      <a href ="{{url_for('auth.view_cart')}}">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+    </div>
+    
+      <!--Menu bar-->
+    
+    
+      <hr class="short-line">
+        <div class = "top_nav">
+         <div id="myLinks">
+       <a href="{{ url_for('auth.category', category_name='New Books') }}">NEW</a>
+    <a href="{{ url_for('auth.category', category_name='High Fantasy') }}">HIGH FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Low Fantasy') }}">LOW FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Urban Fantasy') }}">URBAN FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Dark Fantasy') }}">DARK FANTASY</a>
+    <a href="{{ url_for('auth.category', category_name='Sword and Sorcery') }}">SWORD & SORCERY</a>
+    <a href="{{ url_for('auth.categories')}}">MORE</a>
+    
+      </div>
+          <hr class="short-line">
+    
+            <!--Announcements-->
+            <div id="announcements">
+                <p>Free shipping on orders R500 or more</p>
+            </div>
+
+            <h1> Your Orders</h1>
+            <div class="orders-container">
+                {%for order in orders%}
+                <div class="order">
+
+                    <h2> Order ID: {{order['order_id']}}</h2>
+                    <p>Order Date:{{order['order_date']}}</p>
+                    <p>Status: {{order['status']}}</p>
+                    <p>Total Amount: ${{order['total_amount']}}</p>
+                    <a href="/order_details/{{order[order_id]}}">View Details</a>
+                </div> 
+                {% endfor%}
+                
+            </div>
+
+            <!--Footer-->
+
+        <div class="footer">
+            <div id="customer-care">
+                <h5 class="footer-heading">CUSTOMER CARE</h5>
+                <h5 class="footer-heading">CONTACT HOURS</h5>
+                <p>Monday - Friday</p>
+                <p>8:00am - 5:00pm</p>
+                <h5 class="footer-heading">EMAIL</h5>
+                <p>info@pagine.co.za</p>
+                <h5 class="footer-heading">TEL:</h5>
+                <p>+27(0) 12 847 8483</p>
+            </div>
+
+            <div id="customer-services">
+                <h5 class="footer-heading">CUSTOMER SERVICES</h5>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Delivery Information</a></li>
+                    <li><a href="#">Banking Details</a></li>
+                    <li><a href="#">Guarantee & Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div id="about-us">
+                <h5 class="footer-heading">ABOUT US</h5>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Reward Programme</a></li>
+                    <li><a href="#">About Pagine</a></li>
+                    <li><a href="#">Gift Cards & Vouchers</a></li>
+                    <li><a href="#">Help</a></li>
+                    <!--insert Email form-->
+                </ul>
+            </div>
+
+            <div id="subcribe">
+                <form method="POST" action="
+                {{url_for('auth.subscribe')}}">
+
+                    <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+            </div>
+                    <h5 class="footer-heading">SUBSCRIBE</h5>
+                    <p>Subscribe to our newsletters to get exclusive deals</p>
+                    <input  type="text" name="name" placeholder="Your name" required><br>
+                    <input type="email" name="email" placeholder="Enter your email" required><br>
+                    <button type="submit" class="submit-button">SUBSCRIBE</button>
+                </form>
+            </div>
+
+
+            <div id="social-media-links">
+                <a href="https://facebook.com" class="social-icons" target="_blank">
+                  <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com" class="social-icons" target="_blank">
+                  <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com" class="social-icons" target="_blank">
+                  <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://linkedin.com" class="social-icons" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://youtube.com" class="social-icons" target="_blank">
+                  <i class="fab fa-youtube"></i>
+              </a>
+              </div>
+              </div>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Home</title>
+  <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="{{url_for('static', filename='script.js')}}" defer></script>
+</head>
+
+<body>
+ <!--Logo-->
+  <a href="{{url_for('auth.home')}}">
+    <img id="logo" src="{{url_for('static', filename='Images/icons/Logo.jpg')}}" alt="Logo">
+  </a>
+  
+  <!--search bar-->
+  <div id="top_nav">
+  <div id="search-pair">
+  <input id="search-bar" type="text" placeholder=" What are you looking for?">
+  <i class="fas fa-search"></i>
+  </div>
+ 
+  
+  <!--Drop Down-->
+  <div class="dropdown">
+    <i class="fas fa-user"></i>
+    <div class="dropdown-content">
+      <a href="{{url_for('auth.account')}}">Account</a>
+       {% if session.get("email")%}
+          <a href="{{url_for('auth.logout')}}">Logout</a>
+       {% endif%}
+       <a href="{{url_for('auth.aboutus')}}">About us</a>
+    </div>
+  </div>
+  
+  <a href ="{{url_for('auth.view_cart')}}">
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+</div>
+
+  <!--Menu bar-->
+
+<div id="search-results"></div>
+
+
+  <hr class="short-line">
+    <div class = "top_nav">
+      <div id="myLinks">
+          <a href="{{ url_for('auth.category', category_name='New Books') }}">NEW</a>
+<a href="{{ url_for('auth.category', category_name='High Fantasy') }}">HIGH FANTASY</a>
+<a href="{{ url_for('auth.category', category_name='Low Fantasy') }}">LOW FANTASY</a>
+<a href="{{ url_for('auth.category', category_name='Urban Fantasy') }}">URBAN FANTASY</a>
+<a href="{{ url_for('auth.category', category_name='Dark Fantasy') }}">DARK FANTASY</a>
+<a href="{{ url_for('auth.category', category_name='Sword and Sorcery') }}">SWORD & SORCERY</a>
+<a href="{{ url_for('auth.categories')}}">MORE</a>
+      </div>
+      <hr class="short-line">
+
+      <!--Announcements-->
+      <div id="announcements">
+       <p>🌟 Free Shipping on Orders Over R500! 🌟</p>
+      </div>
+    
+    <!--contents-->
+    <div class="cart-container">
+        <h1 class = "top-heading">Your Shopping Cart</h1>
+
+        <div class="cart-items">
+          {% for item in cart_items %}
+            <div class="cart-item" data-cart-id="{{item['cart_id']}}">
+              <a href="{{ url_for('auth.get_book_details', book_id=item['book_id']) }}">
+                <img src="{{item['cover_img_url']}}" alt="{{item['title']}}">
+              </a>
+                <div class="item-details">
+                    <h3 class="product-details">
+                      <a href="{{ url_for('auth.get_book_details', book_id=item['book_id']) }}" id="cart_tittle">{{item['title']}} </a></h3>
+                    <p>Price: R{{item['price']}}</p>
+                    <input type="number" value="{{item['quantity']}}" min="1" class="item-quantity">
+                      <input type="hidden" name ="book_id" value="{{item['book_id']}}">
+                      <button class="remove-item" type="submit">Remove</button>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+
+        <div class="cart-summary">
+            <h2>Cart Summary</h2>
+            <p>Total Items: <span id="total-items">{{total_items}}</span></p>
+            <p>Total Price: R<span id="total-price">{{total_price}}</span></p>
+            <a href="{{url_for('auth.checkout')}}"><button class="checkout-button">Proceed to Checkout</button></a>
+        </div>
+    </div>
+     <!--Footer-->
+
+        <div class="footer">
+         <div id="customer-care">
+           <h5 class="footer-heading">CUSTOMER CARE</h5>
+           <h5 class="footer-heading">CONTACT HOURS</h5>
+           <p>Monday - Friday</p>
+           <p>8:00am - 5:00pm</p>
+           <h5 class="footer-heading">EMAIL</h5>
+           <p>info@pagine.co.za</p>
+           <h5 class="footer-heading">TEL:</h5>
+           <p>+27(0) 12 847 8483</p>
+         </div>
+
+          <div id="customer-services">
+            <h5 class="footer-heading">CUSTOMER SERVICES</h5>
+            <ul>
+              <li><a href="#">Track Order</a></li>
+              <li><a href="#">Delivery Information</a></li>
+              <li><a href="#">Banking Details</a></li>
+              <li><a href="#">Guarantee & Returns</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </div>
+
+          <div id="about-us">
+            <h5 class="footer-heading">ABOUT US</h5>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Reward Programme</a></li>
+              <li><a href="#">About Pagine</a></li>
+              <li><a href="#">Gift Cards & Vouchers</a></li>
+              <li><a href="#">Help</a></li>
+              <!--insert Email form-->
+            </ul>
+          </div>
+            <div id="subcribe">
+                <form method="POST" action="
+                {{url_for('auth.subscribe')}}">
+
+        <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        </div>
+                    <h5 class="footer-heading">SUBSCRIBE</h5>
+                    <p>Subscribe to our newsletters to get exclusive deals</p>
+                    <input  type="text" name="name" placeholder="Your name" required><br>
+                    <input type="email" name="email" placeholder="Enter your email" required><br>
+                    <button type="submit" class="submit-button">SUBSCRIBE</button>
+                </form>
+            </div>
+
+           <div id="social-media-links">
+            <a href="https://facebook.com" class="social-icons" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" class="social-icons" target="_blank">
+              <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://instagram.com" class="social-icons" target="_blank">
+              <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com" class="social-icons" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://youtube.com" class="social-icons" target="_blank">
+              <i class="fab fa-youtube"></i>
+          </a>
+          </div>
+          <script src="{{ url_for('static', filename='javascript/cart.js') }}" defer></script>
+  </body>
+</html>

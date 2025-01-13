@@ -1,0 +1,179 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+  <script src="{{url_for('static', filename='script.js')}}" defer></script>
+</head>
+
+<body>
+  <!--Logo-->
+  <a href="{{url_for('auth.home')}}">
+    <img id="logo" src="{{url_for('static', filename='Images/icons/Logo.jpg')}}" alt="Logo">
+  </a>
+  
+  <!--search bar-->
+  <div id="top_nav">
+  <div id="search-pair">
+  <input id="search-bar" type="text" placeholder=" What are you looking for?">
+  <!--Top icons-->
+  <i class="fas fa-search"></i>
+  </div>
+  
+  <!--Drop Down-->
+  <div class="dropdown">
+    <i class="fas fa-user"></i>
+    <div class="dropdown-content">
+      <a href="{{url_for('auth.login')}}">Sign in</a>
+      <a href="{{url_for('auth.register')}}">Sign up</a>
+      <a href="{{url_for('auth.account')}}">Account</a>
+    </div>
+  </div>
+  
+  <a href ="{{url_for('auth.view_cart')}}">
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+</div>
+
+  <!--Menu bar-->
+
+
+  <hr class="short-line">
+    <div class = "top_nav">
+      <div id="myLinks">
+        <a href="{{ url_for('auth.category', category_name='newbooks') }}">NEW</a>
+        <a href="{{ url_for('auth.category', category_name='high-fantasy') }}">HIGH FANTASY</a>
+        <a href="{{ url_for('auth.category', category_name='low-fantasy') }}">LOW FANTASY</a>
+        <a href="{{ url_for('auth.category', category_name='urban-fantasy') }}">URBAN FANTASY</a>
+        <a href="{{ url_for('auth.category', category_name='dark-fantasy') }}">DARK FANTASY</a>
+        <a href="{{ url_for('auth.category', category_name='sword-sorcery') }}">SWORD & SORCERY</a>
+        <a href="{{ url_for('auth.categories') }}">MORE</a>
+      </div>
+      <hr class="short-line">
+      
+
+  <!--Announcements-->
+  <div id="announcements">
+    <p>🌟 Free Shipping on Orders Over R500! 🌟</p>
+  </div>
+  
+<!-- Form-->
+ 
+  <div class="form">
+
+     <p id="heading-registration-login-page">Welcome back!</p>
+
+   {% with messages = get_flashed_messages( with_categories=true) %}
+   {% if messages %}
+   <div class="flash-messages">
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-custom alert-dismissible fade show" role="alert"> 
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+    </button>
+    </div> 
+    {% endfor%}
+   </div>
+   {% endif %}
+   {% endwith %}
+
+    <form action="{{ url_for('auth.login_post') }}" method="post">
+      <label for="login-email">Email:</label>
+      <input type ="email" name="email" placeholder="abced@hotmail.com" required>
+      <label for="login-pasword"> Password:</label>
+      <input type ="password" name="password" placeholder="**********" required>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <!--Footer-->
+
+  <div class="footer">
+   <div id="customer-care">
+     <h5 class="footer-heading">CUSTOMER CARE</h5>
+     <h5 class="footer-heading">CONTACT HOURS</h5>
+     <p>Monday - Friday</p>
+     <p>8:00am - 5:00pm</p>
+     <h5 class="footer-heading">EMAIL</h5>
+     <p>info@pagine.co.za</p>
+     <h5 class="footer-heading">TEL:</h5>
+     <p>+27(0) 12 847 8483</p>
+   </div>
+
+    <div id="customer-services">
+      <h5 class="footer-heading">CUSTOMER SERVICES</h5>
+      <ul>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Delivery Information</a></li>
+        <li><a href="#">Banking Details</a></li>
+        <li><a href="#">Guarantee & Returns</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+
+    <div id="about-us">
+      <h5 class="footer-heading">ABOUT US</h5>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Reward Programme</a></li>
+        <li><a href="#">About Pagine</a></li>
+        <li><a href="#">Gift Cards & Vouchers</a></li>
+        <li><a href="#">Help</a></li>
+        <!--insert Email form-->
+      </ul>
+    </div>
+
+            <div id="subcribe">
+                <form method="POST" action="
+                {{url_for('auth.subscribe')}}">
+
+                    <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+            </div>
+                    <h5 class="footer-heading">SUBSCRIBE</h5>
+                    <p>Subscribe to our newsletters to get exclusive deals</p>
+                    <input  type="text" name="name" placeholder="Your name" required><br>
+                    <input type="email" name="email" placeholder="Enter your email" required><br>
+                    <button type="submit" class="submit-button">SUBSCRIBE</button>
+                </form>
+            </div>
+
+    <div id="social-media-links">
+      <a href="https://facebook.com" class="social-icons" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://twitter.com" class="social-icons" target="_blank">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://instagram.com" class="social-icons" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://linkedin.com" class="social-icons" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://youtube.com" class="social-icons" target="_blank">
+        <i class="fab fa-youtube"></i>
+    </a>
+    </div>
+  </div>
+  <script type="script.js"></script>
+    
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>contact us</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+         <!--Logo-->
+         <a href="homepage.html">
+           <img id="logo" src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\Logo.jpg" alt="Logo">
+         </a>
+         <!--search bar-->
+         <input id="search-bar" type="text" placeholder=" What are you looking for?">
+         <!--Top icons-->
+         <img src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\search icon (1).jpg" class="top-icons">
+
+         <!--Drop Down-->
+         <div class="dropdown">
+         <img src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\user-icon 2 (1).png" alt="User Icon" class="top-icons">
+           <div class="dropdown-content">
+             <a href="login.html">Sign in</a>
+             <a href="registration.html">Sign up</a>
+             <a href="account.html">Account</a>
+             <a href="#">Log out</a>
+           </div>
+         </div>
+
+         <img src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\cart icon (1).jpg" class="top-icons">
+
+         <!--Menu bar-->
+         <hr class="short-line">
+           <div class = "top_nav">
+             <div id="myLinks">
+               <a href="newbooks.html">NEW</a>
+               <a href="categoryHighFantasy.html">HIGH FANTASY</a>
+               <a href="categoryLowFantasy.html">LOW FANTASY</a>
+               <a href="categoryUrbanFantasy.html">URBAN FANTASY</a>
+               <a href="categoryDarkFantasy.html">DARK FANTASY</a>
+               <a href="categorySwordSorcery.html">SWORD & SORCERY</a>
+               <a href="categories.html">MORE</a>
+             </div>
+             <hr class="short-line">
+
+     <!--Announcements-->
+     <div id="announcements">
+       <p>🌟 Free Shipping on Orders Over R500! 🌟</p>
+     </div>
+         
+    <!--contents-->
+         
+    <div class="book-page">
+    <img src="">
+    <p id="book-name">Name of the book</p>
+    <button id="add-to-cart">Add to Cart</button>
+    <h4 id="description">Description:</h4>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur nostrum aliquid perferendis voluptas, ipsa magnam vero perspiciatis! A voluptatum eaque dolor minima voluptas obcaecati nam, odio quod, excepturi iste sed!</p>
+    <h4 class="p-book-page">Series:</h4><p id="series"> series...</p>
+  <h4 class="p-book-page">Theme:</h4> <p id="theme">themes...</p>
+   
+    <h4 class="p-book-page">Author(s):</h4>
+    <p id="author">authors....</p>
+  
+    <h4 class="p-book-page">Published:</h4><p id="published-date">published date...</p>
+    
+    <h4 class="p-book-page">Publisher:</h4><p id="publisher">publisher...</p>
+    
+    <h4 class="p-book-page"> Reviews:</h4> <p id="reviews">...</p>
+    
+    </div>
+         <!--Footer-->
+
+         <div class="footer">
+          <div id="customer-care">
+            <h5 class="footer-heading">CUSTOMER CARE</h5>
+            <h5 class="footer-heading">CONTACT HOURS</h5>
+            <p>Monday - Friday</p>
+            <p>8:00am - 5:00pm</p>
+            <h5 class="footer-heading">EMAIL</h5>
+            <p>info@pagine.co.za</p>
+            <h5 class="footer-heading">TEL:</h5>
+            <p>+27(0) 12 847 8483</p>
+          </div>
+
+           <div id="customer-services">
+             <h5 class="footer-heading">CUSTOMER SERVICES</h5>
+             <ul>
+               <li><a href="#">Track Order</a></li>
+               <li><a href="#">Delivery Information</a></li>
+               <li><a href="#">Banking Details</a></li>
+               <li><a href="#">Guarantee & Returns</a></li>
+               <li><a href="#">FAQs</a></li>
+             </ul>
+           </div>
+
+           <div id="about-us">
+             <h5 class="footer-heading">ABOUT US</h5>
+             <ul>
+               <li><a href="#">Contact Us</a></li>
+               <li><a href="#">Events</a></li>
+               <li><a href="#">Reward Programme</a></li>
+               <li><a href="#">About Pagine</a></li>
+               <li><a href="#">Gift Cards & Vouchers</a></li>
+               <li><a href="#">Help</a></li>
+               <!--insert Email form-->
+             </ul>
+           </div>
+
+            <div id="subcribe">
+                <form method="POST" action="
+                {{url_for('auth.subscribe')}}">
+
+                    <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+            </div>
+                    <h5 class="footer-heading">SUBSCRIBE</h5>
+                    <p>Subscribe to our newsletters to get exclusive deals</p>
+                    <input  type="text" name="name" placeholder="Your name" required><br>
+                    <input type="email" name="email" placeholder="Enter your email" required><br>
+                    <button type="submit" class="submit-button">SUBSCRIBE</button>
+                </form>
+            </div>
+
+           <div id="social-media-links">
+             <img src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\insta-icon (1).png" class="social-media-links"><br>
+             <img src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\tiktok-icon (1).webp"class="social-media-links"><br>
+             <img src="C:\Users\agnes\OneDrive\Desktop\Pagine Book Store\Images\icons\x-icon (1).jpg" class="social-media-links">
+           </div>
+         </div>
+  </body>
+</html>

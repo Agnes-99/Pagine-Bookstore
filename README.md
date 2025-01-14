@@ -7,7 +7,7 @@ Welcome to **Pagine Bookstore**, your online destination for discovering and exp
 ## 🌟 Features
 
 ### 🚀 Core Functionality
-- **Browse Books 📖**: Explore a wide range of genres, from Fiction to Non-Fiction, Mystery to Romance.
+- **Browse Books 📖**: Explore an exclusive collection of genres like Fiction, Romance and Fantasy.
 - **Search Your Next Read 🔍**: Find books effortlessly by title, author, or genre.
 - **Detailed Book Info 📚**: Access book covers, author bios, descriptions, and pricing details.
 - **Create Your Account 🔑**: Save favorite books, track purchases, and get personalized recommendations.
@@ -36,7 +36,7 @@ Founded in 2024 by **M.A. Mabusela**, Pagine Bookstore began as a passion projec
 - **Backend**: Python Flask
 - **Database**:SQLite
 - **Payment Integration**: PayFast
-- **Additional Tools**: FontAwesome, Responsive Design Frameworks
+- **Additional Tools**: Bootstrap, FontAwesome, Responsive Design Frameworks
 
 ---
 

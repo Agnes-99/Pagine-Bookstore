@@ -1064,11 +1064,11 @@ input[type="text"], input[type="email"] {
 }
 
 #flash-messages .success {
-    background-color: #28a745; /* Green */
+    background-color: #28a745; 
 }
 
 #flash-messages .error {
-    background-color: #dc3545; /* Red */
+    background-color: #dc3545; 
 }
 
 
@@ -1148,7 +1148,7 @@ input[type="text"], input[type="email"] {
     transform: translateY(1px);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .book-details {
         padding: 20px;
@@ -1269,7 +1269,7 @@ input[type="text"], input[type="email"] {
 
 .sorry-message {
     font-size: 1.5rem;
-    color: #f44336; /* Red color */
+    color: #f44336; 
     font-weight: bold;
     line-height: 1.5;
 }
@@ -1290,14 +1290,14 @@ input[type="text"], input[type="email"] {
     padding: 10px 18px;
     font-size: 1rem;
     color: white;
-    background-color: #f44336; /* Red for cancel */
+    background-color: #f44336;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .button-cancel:hover {
-    background-color: #e53935; /* Darker red on hover */
+    background-color: #e53935;
 }
 
 /*------------------------Checkout Page---------------------------------------------------*/
